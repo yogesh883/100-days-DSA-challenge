@@ -1,0 +1,32 @@
+class Solution {
+    public boolean isHappy(int n) {
+        Set<Long> s=new HashSet<>();
+        s.add((long)n);
+        long x=n;
+        long num=0;
+        while(x>=1){
+            num=0;
+            while(x!=0){
+            long r=x%10;
+            r=(long)Math.pow(r,2);
+            num=num+r;
+            x=x/10;
+            }
+
+            if(num==1){
+                return true;
+            }
+            
+            if(s.contains(num)){
+                    return false;
+            }
+            s.add(num);
+            x=num;
+            num=0;
+
+          //  System.out.print(x+" "+s);
+            
+        }
+            return true;
+     }
+}
